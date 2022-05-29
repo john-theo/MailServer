@@ -15,7 +15,7 @@
 
 ---
 
-Simple self-hostable, centralized, development mail server that <strong style="color:green">DOESN'T REQUIRE</strong> a cloud mail service acccount, <strong style="color:green">DOESN'T REQUIRE</strong> docker compose configurations and <strong style="color:green">DOESN'T REQUIRE</strong> a HTTPS certificate.
+Simple self-hostable, centralized, development mail server that <strong>DOESN'T REQUIRE</strong> a domain, <strong>DOESN'T REQUIRE</strong> a cloud mail service acccount, <strong>DOESN'T REQUIRE</strong> docker compose configurations and <strong>DOESN'T REQUIRE</strong> a HTTPS certificate.
 
 > **Notice: DO NOT** use this project in production environments.
 
@@ -23,12 +23,12 @@ Simple self-hostable, centralized, development mail server that <strong style="c
 
 ## Features
 
-- 🔥 <strong style="color:green">RESTful API</strong>, basic url request in any coding language;
-- 🥹 <strong style="color:green">Authentic</strong>, send actual email;
-- ✨ <strong style="color:green">Lightweight yet Reliable</strong>, use Gmail under the hood;
-- 🚀 <strong style="color:green">OOTB</strong>, working out-of-the-box with almost zero config;
-- 🐳 <strong style="color:green">Docker Ready</strong>, start your service in less than 1 minute;
-- ⚛️ <strong style="color:green">Heroku Ready</strong>, deploy your service in less than 1 minute.
+- 🔥 <strong>RESTful API</strong>, basic url request in any coding language;
+- 🥹 <strong>Authentic</strong>, send actual email;
+- ✨ <strong>Lightweight yet Reliable</strong>, use Gmail under the hood;
+- 🚀 <strong>OOTB</strong>, working out-of-the-box with almost zero config;
+- 🐳 <strong>Docker Ready</strong>, start your service in less than 1 minute;
+- ⚛️ <strong>Heroku Ready</strong>, deploy your service in less than 1 minute.
 
 ## Prerequisites
 
