@@ -19,8 +19,7 @@ Simple self-hostable, centralized, development mail server that <strong style="c
 
 > **Notice: DO NOT** use this project in production environments.
 
-![](imgs/banner.png)
-
+<img src="imgs/banner.png" style="max-width: 400px;" />
 
 ## Features
 

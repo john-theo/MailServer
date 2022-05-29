@@ -1,4 +1,13 @@
 *.local
+*.local.py
 __pycache__
+imgs
+examples
 Makefile
 Dockerfile
+Procfile
+runtime.txt
+README.md
+.dockerignore
+.gitignore
+.git
