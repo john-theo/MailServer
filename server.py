@@ -40,6 +40,7 @@ def index():
             elif ' ' in receiver:
                 receivers = receiver.split(' ')
         receivers = [x.strip() for x in receivers]
+        kwargs = kwargs.to_dict()
         subject = kwargs.pop('subject')
     except KeyError:
         raise MissingArguments('Both "receiver" and "subject" must be specified')
