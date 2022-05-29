@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from email.mime.base import MIMEBase
 from email import encoders
 from dataclasses import dataclass
-from typing import Optional, List, Boolean
+from typing import Optional, List
 import os
 from dotenv import load_dotenv
 
@@ -49,7 +49,7 @@ class Mail:
     def close(self):
         self.service.quit()
 
-    def send(self, receivers:List[str], subject:str, content_html:str, attachments:Optional[List[Attachment]]=None, isolate_receivers:Optional[Boolean]=True):
+    def send(self, receivers:List[str], subject:str, content_html:str, attachments:Optional[List[Attachment]]=None, isolate_receivers:Optional[bool]=True):
         mail = MIMEMultipart('alternative')
         mail['Subject'] = subject
         mail['From'] = self.sender_name
