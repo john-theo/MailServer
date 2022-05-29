@@ -11,7 +11,7 @@ import os
 app = Flask(__name__)
 if not os.environ.get('DEBUG'):
     mail = Mail()
-    atexit.register(lambda _: mail.close())
+    atexit.register(lambda : mail.close())
 
 
 @app.errorhandler(HTTPException)
