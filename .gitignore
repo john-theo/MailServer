@@ -1,4 +1,2 @@
 *.local
 __pycache__
-Makefile
-Dockerfile
