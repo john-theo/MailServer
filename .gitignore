@@ -1,2 +1,3 @@
 *.local
+*.local.py
 __pycache__
