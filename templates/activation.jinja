@@ -1,4 +1,5 @@
 {%- set font_size = font_size | default('14px',true) -%}
+{%- set secondary_font_size = secondary_font_size | default('12px',true) -%}
 {%- set brand_logo_height = brand_logo_height or '30px' -%}
 {%- set brand_logo_img = brand_logo_src and ('<img src="' ~ brand_logo_src ~ '" alt="' ~ brand_name ~ '" title="' ~ brand_name ~ '" style="display:block;height:' ~ brand_logo_height ~ ';width:auto;margin-bottom:10px;"/>') -%}
 {%- set time_before = time_before or 'an hour' -%}
@@ -11,7 +12,7 @@ Hi <strong>{{ username }}</strong>,<br>
 Thank you for registering {{ brand_name }}.<br>
 To complete your {{ brand_name }} registration, please click the following link <strong>within {{ time_before }}</strong>:<br>
 <section style="margin: 20px;"><a href="{{ activation_link }}" style="color: {{ link_color }}; text-decoration: none;">{{ activation_link }}</a><br></section>
-<section style="opacity: 0.5; transform: scale(0.8); transform-origin: top left;">Do not reply to this email; it was sent from an unmonitored email address.<br>
+<section style="opacity: 0.5; font-size:{{ secondary_font_size }};">Do not reply to this email; it was sent from an unmonitored email address.<br>
 For inquiries, please contact our Technical Support at <a style="color: {{ link_color }}; text-decoration: none;" href="mailto:{{ contact_email }}">{{ contact_email }}</a>.</section>
 <br>
 Sincerely,<br>
