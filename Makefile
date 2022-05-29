@@ -1,8 +1,14 @@
 dev:
-	sh ./start.sh $PORT
-heroku:
-	git push heroku master:main
+	sh ./start.sh 8080
+docker_build:
+	docker build -t gserver .
+docker_tag_push:
+	docker tag gserver johndope/gserver:$(version) && docker push johndope/gserver:$(version)
+docker_push:
+	make docker_build && make docker_tag_push version=$(version) && make docker_tag_push version=latest
 heroku_key:
 	heroku config:set GMAIL_APP_PASSWORD=`python -c "from dotenv import dotenv_values; print(dotenv_values('.env.local')['GMAIL_APP_PASSWORD'])"`
-docker:
-	docker run --rm -it -p 8080:8080 -e "GMAIL_USERNAME=example@gmail.com" -e "SENDER_NAME=Example Corp" -v $(pwd)/.env.local:/app/.env.local gmail_server
+heroku_init:
+	read -p "Heroku repo name: " repo_name && heroku git:remote -a $(repo_name) && make heroku_key
+heroku_push:
+	git push heroku main:main
