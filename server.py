@@ -1,7 +1,8 @@
 from flask import Flask, request
 from render_template import render_template
 from mail import Attachment, Mail
-from werkzeug.exceptions import HTTPException, MissingArguments
+from werkzeug.exceptions import HTTPException
+from exceptions import MissingArguments
 import json
 import atexit
 
