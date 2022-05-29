@@ -1,0 +1,30 @@
+{%- set font_size = font_size | default('14px',true) -%}
+{%- set selection_foreground = selection_foreground or 'inherit' -%}
+{%- set selection_background = selection_background or 'inherit' -%}
+{%- set brand_logo_max = brand_logo_max or '30px' -%}
+{%- set brand_logo_img = brand_logo_src and ('<img src="' ~ brand_logo_src ~ '" alt="{{ brand_name }}" class="logo"/>') -%}
+{%- set time_before = time_before or 'an hour' -%}
+{%- set styles = styles or '' -%}
+
+<style type="text/css">
+* { line-height: 1.5; font-size: {{ font_size }}; }
+*::selection { color: {{ selection_foreground }}; background: {{ selection_background }}; }
+.logo { display: block; max-height: {{ brand_logo_max }}; max-width: {{ brand_logo_max }}; width: auto; height: auto; margin-bottom: 10px; }
+.activation-link { margin: 20px; }
+a, a:link, a:hover, a:visited, a:focus, a:active { color: green; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.footnote { opacity: 0.5; transform: scale(0.8); transform-origin: top left;  }
+{{ styles }}
+</style>
+
+{{ brand_logo_img }}
+Hi <strong>{{ username }}</strong>,<br>
+<br>
+Thank you for registering {{ brand_name }}.<br>
+To complete your {{ brand_name }} registration, please click the following link <strong>within {{ time_before }}</strong>:<br>
+<section class="activation-link"><a href="{{ activation_link }}">{{ activation_link }}</a><br></section>
+<section class="footnote">Do not reply to this email; it was sent from an unmonitored email address.<br>
+For inquiries, please contact our Technical Support at <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>.</section>
+<br>
+Sincerely,<br>
+<strong>{{ brand_name }} Team</strong>
