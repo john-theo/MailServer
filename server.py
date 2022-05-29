@@ -49,7 +49,7 @@ def index():
             raise MissingArguments('Both "receiver" and "subject" must be specified')
     if 'template' in kwargs:
         template_name = kwargs.pop('template')
-        html = render_template(template_name, kwargs.to_dict())
+        html = render_template(template_name, kwargs)
     elif 'html' in kwargs:
         html = kwargs.pop('html')
     else:
