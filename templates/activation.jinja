@@ -2,7 +2,7 @@
 {%- set selection_foreground = selection_foreground or 'inherit' -%}
 {%- set selection_background = selection_background or 'inherit' -%}
 {%- set brand_logo_max = brand_logo_max or '30px' -%}
-{%- set brand_logo_img = brand_logo_src and ('<img src="' ~ brand_logo_src ~ '" alt="{{ brand_name }}" class="logo"/>') -%}
+{%- set brand_logo_img = brand_logo_src and ('<img src="' ~ brand_logo_src ~ '" alt="' ~ brand_name ~ '" class="logo"/>') -%}
 {%- set time_before = time_before or 'an hour' -%}
 {%- set styles = styles or '' -%}
 

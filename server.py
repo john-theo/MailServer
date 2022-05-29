@@ -5,11 +5,13 @@ from werkzeug.exceptions import HTTPException
 from exceptions import MissingArguments
 import json
 import atexit
+import os
 
 
 app = Flask(__name__)
-mail = Mail()
-atexit.register(lambda _: mail.close())
+if not os.environ.get('DEBUG'):
+    mail = Mail()
+    atexit.register(lambda _: mail.close())
 
 
 @app.errorhandler(HTTPException)
@@ -24,8 +26,7 @@ def handle_exception(e):
     return response
 
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
+def parse_request(request):
     kwargs = request.form or request.args
     attachments = [
         Attachment(file_.filename, file_.read())
@@ -54,4 +55,21 @@ def index():
         html = kwargs.pop('html')
     else:
         raise MissingArguments('Either "template" or "html" must be specified')
+    return receivers, subject, html, attachments
+
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    receivers, subject, html, attachments = parse_request(request)
     return mail.send(receivers, subject, html, attachments=attachments)
+
+
+@app.route('/debug', methods=['GET', 'POST'])
+def debug():
+    receivers, subject, html, attachments = parse_request(request)
+    return {
+        'receivers': receivers,
+        'subject': subject,
+        'html': html,
+        'attachments': [{"name": x.filename, "size": len(x.content)} for x in attachments]
+    }
