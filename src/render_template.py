@@ -1,7 +1,7 @@
 from jinja2 import Environment, FileSystemLoader, meta
 from jinja2.nodes import Assign, Filter, And, Or
 from jinja2 import TemplateNotFound as JinjaTemplateNotFound
-from exceptions import TemplateNotFound, MissingArguments
+from src.exceptions import TemplateNotFound, MissingArguments
 
 
 jinja_env = Environment(loader=FileSystemLoader("templates/"))

@@ -1,8 +1,8 @@
 from flask import Flask, request
-from render_template import render_template
-from mail import Attachment, Mail
+from src.render_template import render_template
+from src.mail import Attachment, Mail
 from werkzeug.exceptions import HTTPException
-from exceptions import MissingArguments
+from src.exceptions import MissingArguments
 import json
 import atexit
 import os
@@ -40,7 +40,7 @@ def parse_request(request):
                 receivers = receiver.split(',')
             elif ' ' in receiver:
                 receivers = receiver.split(' ')
-        receivers = [x.strip() for x in receivers]
+        receivers = list({x.strip() for x in receivers})
         kwargs = kwargs.to_dict()
         subject = kwargs.pop('subject')
     except KeyError:
