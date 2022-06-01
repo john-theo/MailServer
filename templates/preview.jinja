@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/styles/default.min.css"><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script><script>hljs.highlightAll();</script>
+    <style>body > * { width: 100%; } hr { margin: 40px 0; } body { padding: 30px 100px } </style>
+</head>
+<body>
+    <h1>{{ subject }}</h1>
+    <p><b>Receivers</b></p>
+    <ul>
+    {%- for email in receivers -%}
+        <li>{{ email }}</li>
+    {%- endfor -%}
+    </ul>
+    <p><b>Attachments</b></p>
+    <ul>
+    {%- if attachments is defined and attachments|length > 0  -%}
+    {%- for file in attachments -%}
+        <li>{{ file.name }} ({{ file.size }} bytes)</li>
+    {%- endfor -%}
+    {%- else -%}
+        <li>(None)</li>
+    {%- endif -%}
+    </ul>
+    <hr>
+    <section>{{ html }}</section>
+    <hr>
+    <pre style="white-space: pre-wrap"><code class="language-html">{{ html|e }}</code></pre>
+</body>
+</html>
