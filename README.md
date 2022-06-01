@@ -42,24 +42,22 @@ docker run --rm -it -p <LOCAL_PORT>:8080 \
     -e "NAME=<DISPLAY_SENDER_NAME>" \
     -e "EMAIL=<YOUR@EMAIL.ADDRESS>" \
     -e "PASSWORD=${password}" \
-    johndope/mail_server:latest
+    johndope/mail-server:latest
 ```
 
 > There will be a prompt for "Password", paste your Email password and hit enter (whatever you paste or input will not be shown on the screen).
 
 ## Providers
 
-Include 4 SMTP mail service providers: [Gmail](https://support.google.com/mail/answer/7126229?hl=en#zippy=%2Cstep-change-smtp-other-settings-in-your-email-client) (default), [Yandex](https://yandex.com/support/mail/mail-clients/others.html), [QQ (Tencent)](https://service.mail.qq.com/cgi-bin/help?id=28&no=167&subtype=1) and [163 (NetEase)](http://help.163.com/09/1223/14/5R7P3QI100753VB8.html).
+Email addresses from these 4 SMTP mail service providers can be automatically configured: [Gmail](https://support.google.com/mail/answer/7126229?hl=en#zippy=%2Cstep-change-smtp-other-settings-in-your-email-client), [Yandex](https://yandex.com/support/mail/mail-clients/others.html), [QQ (Tencent)](https://service.mail.qq.com/cgi-bin/help?id=28&no=167&subtype=1) and [163 (NetEase)](http://help.163.com/09/1223/14/5R7P3QI100753VB8.html).
 
 **NOTICE:**
 - Use the [APP password](https://myaccount.google.com/apppasswords) for Gmail password;
 - Use the [Auth Code](#) (Settings - POP3/SMTP/IMAP - Auth Code Management) for NetEase password.
 
-The according `PROVIDER` env variable values are: `gmail`, `yandex`, `qq` and `163`.
-
 ### Use other providers
 
-[Mail Server](https://github.com/john-theo/MailServer) also supports custom provider configurations, just remove the `PROVIDER` env variable and add  `SMTP_DOMAIN` (eg. smtp.gmail.com) and `SMTP_SSL_PORT` (eg. 465).
+[Mail Server](https://github.com/john-theo/MailServer) also supports custom provider configurations, just add the `SMTP_DOMAIN` (eg. smtp.gmail.com) and `SMTP_SSL_PORT` (eg. 465) env variables.
 
 ## Basic Usage
 

@@ -9,6 +9,7 @@ from dataclasses import dataclass
 from typing import Optional, List
 import os
 from src.providers import get_provider_args
+from flask import current_app
 
 
 @dataclass
@@ -41,7 +42,7 @@ class Mail:
         password = os.environ.get('PASSWORD')
         assert password, 'Missing environment variable PASSWORD'
         self.service.login(username, password)
-        print('Login success!')
+        current_app.logger.info('Login success!')
         return username
 
     def close(self):
