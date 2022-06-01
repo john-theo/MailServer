@@ -1,14 +1,16 @@
 <pre><p align="center"><code>
-
-║ ╦╚═╗├┤ ├┬┘└┐┌┘├┤ ├┬┘
-╚═╝╚═╝└─┘┴└─ └┘ └─┘┴└─
+   __  ___     _ __  ____                    
+  /  |/  /__ _(_) / / __/__ _____  _____ ____
+ / /|_/ / _ `/ / / _\ \/ -_) __/ |/ / -_) __/
+/_/  /_/\_,_/_/_/ /___/\__/_/  |___/\__/_/   
+                                             
 </code></p></pre>
 
 <p align="center">
 <a href="https://hub.docker.com/r/johndope/mail-server"><img src="https://img.shields.io/docker/pulls/johndope/mail-server.svg" /></a>
 <a href="https://github.com/john-theo/MailServer"><img src="https://img.shields.io/github/stars/john-theo/MailServer?label=github stars" /></a>
 <img src="https://img.shields.io/badge/language-python-brightgreen.svg" />
-<img src="https://img.shields.io/docker/v/johndope/Mail-server?color=green" />
+<img src="https://img.shields.io/docker/v/johndope/mail-server?color=green" />
 <img src="https://img.shields.io/github/last-commit/john-theo/MailServer?color=blue" />
 <img src="https://img.shields.io/github/repo-size/john-theo/MailServer" />
 <img src="https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-lightgrey" />
@@ -105,6 +107,8 @@ You can also mount your own templates into the docker container and use them.
 
 To debug your own templates, you can use the `/debug` (backward compatibility) or the `/preview` endpoint with the same request payload, it will response the renderer HTML page with parsed parameters at the bottom.
 
+<img src="imgs/preview.png" width="400"  style="border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); padding: 5px 10px" />
+
 ## TOTP
 
 TOTP, or time-based one-time password, is the algorithm commonly used by authenticators for 2FA, it generates a one-time password that uses the current time as a source of uniqueness.
@@ -129,15 +133,8 @@ docker run --rm -it \
 ## Deploy
 
 1. Clone this repository
-2. Change the `.env` file content
-3. Create a `.env.local` file with `PASSWORD=<YOUR_PASSWORD>`
-
-then
-
-```bash
-make heroku_init
-make heroku_push
-```
+2. Fill in the blanks in the `.env` file
+3. Run `make hinit && make hpush`
 
 ## Quick reference
 

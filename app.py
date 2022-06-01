@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv('.env')
+
 from flask import Flask, request, render_template as flask_render_template
 from src.render_template import render_template
 from src.mail import Attachment, Mail
@@ -76,9 +79,6 @@ def preview():
 
 
 # app.run(debug=True)
-if app.config['DEBUG']:
-    from dotenv import load_dotenv
-    load_dotenv('.env.local')
-else:
+if not app.config['DEBUG']:
     totp = PyOTP(app)
     mail = Mail(app)
