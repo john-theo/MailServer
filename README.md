@@ -119,12 +119,20 @@ TOTP, or time-based one-time password, is the algorithm commonly used by authent
 
 If you deploy [Mail Server](https://github.com/john-theo/MailServer) to a publicly accessible domain (like Heroku), anyone can send emails on your behalf which is highly dangerous. So to enable TOTP to reject requests not send by your trusted backends:
 
-1. add a `TOTP_SECRET` env variable ([how to generate one](https://github.com/pyauth/pyotp#generating-a-secret-key));
+1. add a `TOTP_SECRET` env variable;
 2. tell your good backend pal this secret key and ask them to send requests with a query parameter `totp` (eg. `GET /?totp=072813`).
 
 > There are packages in various languages that can generate the TOTP token like [ROTP](https://github.com/mdp/rotp) for Ruby, [PyTOP](https://github.com/pyauth/pyotp) for Python, [OTPlib](https://github.com/yeojz/otplib) for Nodejs and many more.
 
+### How to generate the TOTP secret key
 
+To generate a secret key run:
+
+```bash
+docker run --rm -it \
+    johndope/mail_server:latest \
+    generate_totp.sh
+```
 
 ## Deploy
 

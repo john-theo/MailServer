@@ -4,7 +4,7 @@ from src.mail import Attachment, Mail
 from werkzeug.exceptions import HTTPException
 from src.exceptions import MissingArguments
 import json
-from src.flask_pyotp import PyOTP
+from src.totp import PyOTP
 
 
 app = Flask(__name__)
@@ -75,8 +75,10 @@ def preview():
         ])
 
 
-if __name__ == '__main__':
-    # app.run(debug=True)
-    if not app.config['DEBUG']:
-        totp = PyOTP(app)
-        mail = Mail()
+# app.run(debug=True)
+if app.config['DEBUG']:
+    from dotenv import load_dotenv
+    load_dotenv('.env.local')
+else:
+    totp = PyOTP(app)
+    # mail = Mail()
