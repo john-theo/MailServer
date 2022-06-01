@@ -1,3 +1,4 @@
 *.local
 *.local.py
 __pycache__
+venv

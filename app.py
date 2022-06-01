@@ -4,14 +4,13 @@ from src.mail import Attachment, Mail
 from werkzeug.exceptions import HTTPException
 from src.exceptions import MissingArguments
 import json
-import atexit
-import os
+from src.flask_pyotp import PyOTP
 
 
 app = Flask(__name__)
-if not os.environ.get('DEBUG'):
+if not app.config['DEBUG']:
+    totp = PyOTP(app)
     mail = Mail()
-    atexit.register(lambda : mail.close())
 
 
 @app.errorhandler(HTTPException)
@@ -53,7 +52,6 @@ def parse_request(request):
         html = render_template(template_name, **kwargs)
     elif 'html' in kwargs:
         html = kwargs.pop('html')
-    else:
         raise MissingArguments('Either "template" or "html" must be specified')
     return receivers, subject, html, attachments
 
