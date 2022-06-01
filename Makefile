@@ -1,7 +1,7 @@
 dev:
 	sh ./start.sh 8080
 docker_build:
-	docker build -t gmail-server .
+	docker build -t mail-server .
 docker_tag_push:
 	docker tag gserver johndope/gmail-server:$(version) && docker push johndope/gmail-server:$(version)
 docker_push:

@@ -81,4 +81,4 @@ if app.config['DEBUG']:
     load_dotenv('.env.local')
 else:
     totp = PyOTP(app)
-    # mail = Mail()
+    mail = Mail(app)

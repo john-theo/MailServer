@@ -34,11 +34,6 @@ Completely **FREE and Open Source** like [Mail In A Box](https://github.com/mail
 - 🐳 <strong>Docker Ready</strong>, start your service in less than 1 minute;
 - ⚛️ <strong>Heroku Ready</strong>, deploy your service in less than 1 minute.
 
-## Prerequisites
-
-- [Google App Password](https://myaccount.google.com/apppasswords)
-- Nothing else 😊
-
 ## Get Started
 
 ```bash
@@ -55,7 +50,7 @@ docker run --rm -it -p <LOCAL_PORT>:8080 \
 
 ## Providers
 
-Include 4 SMTP mail service providers: [Gmail](https://support.google.com/mail/answer/7126229?hl=en#zippy=%2Cstep-change-smtp-other-settings-in-your-email-client), [Yandex](https://yandex.com/support/mail/mail-clients/others.html), [QQ (Tencent)](https://service.mail.qq.com/cgi-bin/help?id=28&no=167&subtype=1) and [163 (NetEase)](http://help.163.com/09/1223/14/5R7P3QI100753VB8.html).
+Include 4 SMTP mail service providers: [Gmail](https://support.google.com/mail/answer/7126229?hl=en#zippy=%2Cstep-change-smtp-other-settings-in-your-email-client) (default), [Yandex](https://yandex.com/support/mail/mail-clients/others.html), [QQ (Tencent)](https://service.mail.qq.com/cgi-bin/help?id=28&no=167&subtype=1) and [163 (NetEase)](http://help.163.com/09/1223/14/5R7P3QI100753VB8.html).
 
 **NOTICE:**
 - Use the [APP password](https://myaccount.google.com/apppasswords) for Gmail password;
@@ -130,8 +125,8 @@ To generate a secret key run:
 
 ```bash
 docker run --rm -it \
-    johndope/mail_server:latest \
-    generate_totp.sh
+    johndope/mail-server:latest \
+    bash generate_totp.sh
 ```
 
 ## Deploy

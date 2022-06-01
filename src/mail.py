@@ -8,12 +8,7 @@ from email import encoders
 from dataclasses import dataclass
 from typing import Optional, List
 import os
-from dotenv import load_dotenv
-
-
-if not ('GMAIL_USERNAME' in os.environ and 'SENDER_NAME' in os.environ):
-    load_dotenv('.env')
-load_dotenv('.env.local')
+from src.providers import get_provider_args
 
 
 @dataclass
@@ -31,22 +26,23 @@ class Attachment:
 
 
 class Mail:
-    def __init__(self):
-        self.port = 465
-        self.smtp_server_domain_name = "smtp.gmail.com"
-        username = os.environ.get('GMAIL_USERNAME')
-        assert username, 'Missing environment variable GMAIL_USERNAME'
-        password = os.environ.get('GMAIL_APP_PASSWORD')
-        assert password, 'Missing environment variable GMAIL_APP_PASSWORD'
+    def __init__(self, app):
+        self.app = app
+        self.service = smtplib.SMTP_SSL(
+            *get_provider_args(), context=ssl.create_default_context())
+        self.sender_mail = self.login()
         name = os.environ.get('SENDER_NAME')
-        assert name, 'Missing environment variable SENDER_NAME'
-        self.sender_mail = username
-        self.sender_name = f'{name} ({username})'
-        self.password = password
-        ssl_context = ssl.create_default_context()
-        self.service = smtplib.SMTP_SSL(self.smtp_server_domain_name, self.port, context=ssl_context)
-        self.service.login(self.sender_mail, self.password)
+        self.sender_name = f'{name} ({self.sender_mail})' if name else self.sender_mail
         atexit.register(lambda: self.close())
+
+    def login(self):
+        username = os.environ.get('USERNAME')
+        assert username, 'Missing environment variable USERNAME'
+        password = os.environ.get('PASSWORD')
+        assert password, 'Missing environment variable PASSWORD'
+        print(username, password)
+        self.service.login(username, password)
+        return username
 
     def close(self):
         self.service.quit()
