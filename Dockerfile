@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.9-alpine
 LABEL maintainer="John Dope (zhuangxh.cn@gmail.com)"
 
 COPY . /app
