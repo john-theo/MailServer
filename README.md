@@ -107,7 +107,9 @@ You can also mount your own templates into the docker container and use them.
 
 To debug your own templates, you can use the `/debug` (backward compatibility) or the `/preview` endpoint with the same request payload, it will response the renderer HTML page with parsed parameters at the bottom.
 
-<img src="imgs/preview.png" width="400"  style="border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); padding: 5px 10px" />
+<p align="center">
+<img src="imgs/preview.png" width="300"  style="border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); padding: 5px 10px" />
+</p>
 
 ## TOTP
 
