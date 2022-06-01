@@ -1,3 +1,4 @@
+import atexit
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -45,6 +46,7 @@ class Mail:
         ssl_context = ssl.create_default_context()
         self.service = smtplib.SMTP_SSL(self.smtp_server_domain_name, self.port, context=ssl_context)
         self.service.login(self.sender_mail, self.password)
+        atexit.register(lambda: self.close())
 
     def close(self):
         self.service.quit()
