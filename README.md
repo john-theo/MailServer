@@ -39,9 +39,8 @@ Completely **FREE and Open Source** like [Mail In A Box](https://github.com/mail
 ```bash
 read -p "Password: " -s password && \
 docker run --rm -it -p <LOCAL_PORT>:8080 \
-    -e "PROVIDER=gmail"
-    -e "SENDER_NAME=<YOUR_NAME>" \
-    -e "USERNAME=<YOUR@EMAIL.ADDRESS>" \
+    -e "NAME=<DISPLAY_SENDER_NAME>" \
+    -e "EMAIL=<YOUR@EMAIL.ADDRESS>" \
     -e "PASSWORD=${password}" \
     johndope/mail_server:latest
 ```

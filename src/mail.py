@@ -31,17 +31,17 @@ class Mail:
         self.service = smtplib.SMTP_SSL(
             *get_provider_args(), context=ssl.create_default_context())
         self.sender_mail = self.login()
-        name = os.environ.get('SENDER_NAME')
+        name = os.environ.get('NAME')
         self.sender_name = f'{name} ({self.sender_mail})' if name else self.sender_mail
         atexit.register(lambda: self.close())
 
     def login(self):
-        username = os.environ.get('USERNAME')
-        assert username, 'Missing environment variable USERNAME'
+        username = os.environ.get('EMAIL')
+        assert username, 'Missing environment variable EMAIL'
         password = os.environ.get('PASSWORD')
         assert password, 'Missing environment variable PASSWORD'
-        print(username, password)
         self.service.login(username, password)
+        print('Login success!')
         return username
 
     def close(self):
