@@ -1,11 +1,11 @@
 dev:
 	sh ./start.sh 8080
-docker_build:
+dbuild:
 	docker build -t mail-server .
-docker_tag_push:
-	docker tag gserver johndope/gmail-server:$(version) && docker push johndope/gmail-server:$(version)
-docker_push:
-	make docker_build && make docker_tag_push version=$(version) && make docker_tag_push version=latest
+_docker_tag_push:
+	docker tag mail-server johndope/mail-server:$(version) && docker push johndope/mail-server:$(version)
+dpush:
+	make dbuild && make _docker_tag_push version=$(version) && make _docker_tag_push version=latest
 heroku_key:
 	heroku config:set GMAIL_APP_PASSWORD=`python -c "from dotenv import dotenv_values; print(dotenv_values('.env.local')['GMAIL_APP_PASSWORD'])"`
 heroku_init:
