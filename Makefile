@@ -1,9 +1,9 @@
 dev:
 	sh ./start.sh 8080
 docker_build:
-	docker build -t gserver .
+	docker build -t gmail-server .
 docker_tag_push:
-	docker tag gserver johndope/gserver:$(version) && docker push johndope/gserver:$(version)
+	docker tag gserver johndope/gmail-server:$(version) && docker push johndope/gmail-server:$(version)
 docker_push:
 	make docker_build && make docker_tag_push version=$(version) && make docker_tag_push version=latest
 heroku_key:
