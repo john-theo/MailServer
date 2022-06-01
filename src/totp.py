@@ -13,9 +13,9 @@ signal.signal(signal.SIGINT, lambda _, __: os._exit(0))
 
 class PyOTP():
     def __init__(self, app):
-        secret_key = os.environ.get('TOTP_SECRET_KEY')
+        secret_key = os.environ.get('TOTP_SECRET')
         if not secret_key:
-            print(f'"TOTP_SECRET_KEY" env variable not found, '
+            print(f'"TOTP_SECRET" env variable not found, '
                   'TOTP authentication not activated! '
                   'See https://github.com/john-theo/MailServer#totp for details'
                   )
