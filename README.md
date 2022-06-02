@@ -23,7 +23,7 @@ Completely **FREE and Open Source** like [Mail In A Box](https://github.com/mail
 > **Notice: DO NOT** use this project in large-scale production environments.
 
 <p align="center">
-<img src="imgs/banner.png" width="600" style="border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); padding: 5px 10px" />
+<img src="https://github.com/john-theo/MailServer/raw/main/imgs/banner.png" width="600" style="border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); padding: 5px 10px" />
 </p>
 
 ## Features
@@ -108,7 +108,7 @@ You can also mount your own templates into the docker container and use them.
 To debug your own templates, you can use the `/debug` (backward compatibility) or the `/preview` endpoint with the same request payload, it will response the renderer HTML page with parsed parameters at the bottom.
 
 <p align="center">
-<img src="imgs/preview.png" width="300"  style="border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); padding: 5px 10px" />
+<img src="https://github.com/john-theo/MailServer/raw/main/imgs/preview.png" width="300"  style="border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); padding: 5px 10px" />
 </p>
 
 ## TOTP
