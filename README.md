@@ -10,9 +10,9 @@
 <a href="https://hub.docker.com/r/johndope/mail-server"><img src="https://img.shields.io/docker/pulls/johndope/mail-server.svg" /></a>
 <a href="https://github.com/john-theo/MailServer"><img src="https://img.shields.io/github/stars/john-theo/MailServer?label=github stars" /></a>
 <img src="https://img.shields.io/badge/language-python-brightgreen.svg" />
-<img src="https://img.shields.io/docker/v/johndope/mail-server?color=green" />
+<!-- <img src="https://img.shields.io/docker/v/johndope/mail-server?color=green" />
 <img src="https://img.shields.io/github/last-commit/john-theo/MailServer?color=blue" />
-<img src="https://img.shields.io/github/repo-size/john-theo/MailServer" />
+<img src="https://img.shields.io/github/repo-size/john-theo/MailServer" /> -->
 <img src="https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-lightgrey" />
 </p>
 
